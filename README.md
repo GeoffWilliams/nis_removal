@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/GeoffWilliams/nis_removal.svg?branch=master)](https://travis-ci.org/GeoffWilliams/nis_removal)
 # nis_removal
 
 #### Table of Contents
