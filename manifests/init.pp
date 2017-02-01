@@ -1,47 +1,9 @@
-# Class: nis_removal
-# ===========================
+# Nis_removal
 #
-# Full description of class nis_removal here.
+# Class to disable NIS service and optionally remove NIS packages where applied
 #
-# Parameters
-# ----------
-#
-# Document parameters here.
-#
-# * `sample parameter`
-# Explanation of what this parameter affects and what it defaults to.
-# e.g. "Specify one or more upstream ntp servers as an array."
-#
-# Variables
-# ----------
-#
-# Here you should define a list of variables that this module would require.
-#
-# * `sample variable`
-#  Explanation of how this variable affects the function of this class and if
-#  it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#  External Node Classifier as a comma separated list of hostnames." (Note,
-#  global variables should be avoided in favor of class parameters as
-#  of Puppet 2.6.)
-#
-# Examples
-# --------
-#
-# @example
-#    class { 'nis_removal':
-#      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#    }
-#
-# Authors
-# -------
-#
-# Author Name <author@domain.com>
-#
-# Copyright
-# ---------
-#
-# Copyright 2017 Your name here, unless otherwise noted.
-#
+# @param package - List of packages to remove or false if nothing should be removed
+# @param service - List of services to disable and stop
 class nis_removal(
     $package = $nis_removal::params::package,
     $service = $nis_removal::params::service,
@@ -52,9 +14,11 @@ class nis_removal(
     enable => false,
   }
 
+  # package removal platform-optional (solaris we do not uninstall).  We must
+  # use 'purged' to avoid having to remove each package in the correct order
   if $package {
     package { $package:
-      ensure => absent,
+      ensure => purged,
     }
   }
 }

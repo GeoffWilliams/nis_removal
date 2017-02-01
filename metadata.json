@@ -1,5 +1,5 @@
 {
-  "name": "geoffwilliams/nis_removal",
+  "name": "geoffwilliams-nis_removal",
   "version": "0.1.0",
   "author": "geoffwilliams",
   "summary": "Remove NIS from aix, solaris and linux",

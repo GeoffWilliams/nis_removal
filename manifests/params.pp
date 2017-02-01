@@ -1,3 +1,6 @@
+# Nis_removal::Params
+#
+# Params pattern class
 class nis_removal::params {
   case $osfamily {
     "Solaris": {
@@ -21,7 +24,7 @@ class nis_removal::params {
       $service = ['ypbind', 'ypserv']
       $package = ['ypbind', 'ypserv']
     }
-    default {
+    default: {
       fail("${module_name} does not support ${osfamily}")
     }
   }

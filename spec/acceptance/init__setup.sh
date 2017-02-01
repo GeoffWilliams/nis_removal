@@ -1,3 +1,4 @@
 #!/bin/bash
-# If this file exists it will be run on the system under test before puppet runs
-# to setup any prequisite test conditions, etc
+# Install ypbind packages (linux) so we can verify removal
+puppet resource package 'ypbind' ensure=present
+puppet resource package 'ypserv' ensure=present

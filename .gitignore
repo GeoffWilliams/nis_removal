@@ -1,1 +1,5 @@
+.librarian
+.tmp
 /spec/fixtures
+Gemfile.lock
+Puppetfile.lock
