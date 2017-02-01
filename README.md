@@ -23,7 +23,7 @@ This is a module to remove NIS from nodes (or lock it down to a single subnet).
 
 * Removes NIS packages
 * Stops and disables NIS daemons
-
+* Remove NIS users and groups
 
 ## Usage
 
@@ -31,6 +31,12 @@ This is a module to remove NIS from nodes (or lock it down to a single subnet).
 ```puppet
 include nis_removal
 ```
+
+### Remove NIS users and groups
+```puppet
+include nis_removal::delete_nis_users
+```
+* Removes users beginning with `+`
 
 ### Lockdown NIS to only work on a given subnet (AIX only)
 ```puppet
